@@ -21,7 +21,7 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
     )
     author = models.ForeignKey(
         User,
