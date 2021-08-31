@@ -1,13 +1,11 @@
-    {% extends 'base.html' %}
-    {% block content %}
-      <div class="container py-5">
-        {% for post in posts %}
-          {% include 'includes/post.html' %}  
-          {% if post.group.slug %}
-            <a href="{% url 'posts:group' post.group.slug %}">все записи группы</a>
-          {% endif %}    
-        
-          {% if not forloop.last %}<hr>{% endif %}
-        {% endfor %} 
-      </div>  
-    {% endblock %}
+{% extends "base.html" %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block content %}
+
+  {% for post in page_obj %}
+   <p> {{ post }} </p>
+  {% endfor %}
+
+  {% include 'posts/includes/paginator.html' %}
+
+{% endblock %} 

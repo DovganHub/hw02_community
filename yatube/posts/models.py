@@ -11,7 +11,7 @@ class Group(models.Model):
     slug = models.SlugField(max_length=20, unique=True, db_index=True)
 
     def __str__(self):
-        return(self.title)
+        return self.title
 
 
 class Post(models.Model):
@@ -28,3 +28,6 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         related_name='posts'
     )
+
+    def __str__(self):
+        return self.text
